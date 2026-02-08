@@ -1,0 +1,18 @@
+# Lab 02 - n8n Workflow Automation Tool with Docker Compose
+version: "3.8"
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n-2026-02-06
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Asia/Bangkok
+      - TZ=Asia/Bangkok
+      - N8N_SECURE_COOKIE=false
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
